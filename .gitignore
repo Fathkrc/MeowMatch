@@ -1,0 +1,12 @@
+# Ignore sensitive configs
+src/main/resources/application.properties
+
+# IDE files
+.idea/
+*.iml
+
+# Build output
+target/
+
+# OS files
+.DS_Store

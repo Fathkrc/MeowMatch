@@ -1,0 +1,4 @@
+spring.application.name=Pawmatch
+spring.data.mongodb.uri=YOUR_MONGO_URI_HERE
+openai.api.key=YOUR_OPENAI_API_KEY_HERE
+server.port=8080
