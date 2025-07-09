@@ -27,6 +27,7 @@ public class ConversationController {
     public List<Conversation> getAllConversations(){
         return conversationService.getAllConversation();
     }
+
     @DeleteMapping("/conversations")
     public ResponseEntity<Void> deleteConversationById(@RequestBody String id){
         conversationService.deleteById(id);
