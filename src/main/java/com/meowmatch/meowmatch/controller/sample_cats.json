@@ -1,0 +1,202 @@
+[
+    {
+        "id": null,
+        "name": "Mimi",
+        "age": 2,
+        "gender": "FEMALE",
+        "location": "Tampere",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy10.jpg",
+        "breed": "Maine Coon",
+        "bio": "Loves sunbathing and birdwatching."
+    },
+    {
+        "id": null,
+        "name": "Zoe",
+        "age": 7,
+        "gender": "FEMALE",
+        "location": "Lahti",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy17.jpg",
+        "breed": "Ragdoll",
+        "bio": "Loves sunbathing and birdwatching."
+    },
+    {
+        "id": null,
+        "name": "Misty",
+        "age": 8,
+        "gender": "FEMALE",
+        "location": "Sein\u00e4joki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy24.jpg",
+        "breed": "Russian Blue",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Oscar",
+        "age": 3,
+        "gender": "MALE",
+        "location": "Lahti",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy11.jpg",
+        "breed": "Ragdoll",
+        "bio": "Very vocal and affectionate."
+    },
+    {
+        "id": null,
+        "name": "Luna",
+        "age": 8,
+        "gender": "FEMALE",
+        "location": "Jyv\u00e4skyl\u00e4",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy13.jpg",
+        "breed": "Ragdoll",
+        "bio": "Head tilt master."
+    },
+    {
+        "id": null,
+        "name": "Nala",
+        "age": 7,
+        "gender": "FEMALE",
+        "location": "Oulu",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy24.jpg",
+        "breed": "Persian",
+        "bio": "Gentle giant with a loud purr."
+    },
+    {
+        "id": null,
+        "name": "Tasha",
+        "age": 4,
+        "gender": "FEMALE",
+        "location": "Oulu",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy12.jpg",
+        "breed": "Persian",
+        "bio": "Very vocal and affectionate."
+    },
+    {
+        "id": null,
+        "name": "Jasper",
+        "age": 8,
+        "gender": "MALE",
+        "location": "Jyv\u00e4skyl\u00e4",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy21.jpg",
+        "breed": "Ragdoll",
+        "bio": "Graceful and independent."
+    },
+    {
+        "id": null,
+        "name": "Finn",
+        "age": 8,
+        "gender": "MALE",
+        "location": "Turku",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy16.jpg",
+        "breed": "Maine Coon",
+        "bio": "Very vocal and affectionate."
+    },
+    {
+        "id": null,
+        "name": "Chloe",
+        "age": 6,
+        "gender": "FEMALE",
+        "location": "Helsinki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy16.jpg",
+        "breed": "Abyssinian",
+        "bio": "Talkative and social."
+    },
+    {
+        "id": null,
+        "name": "Nala",
+        "age": 1,
+        "gender": "FEMALE",
+        "location": "Vaasa",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy20.jpg",
+        "breed": "Ragdoll",
+        "bio": "Head tilt master."
+    },
+    {
+        "id": null,
+        "name": "Charlie",
+        "age": 4,
+        "gender": "MALE",
+        "location": "Sein\u00e4joki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy24.jpg",
+        "breed": "Persian",
+        "bio": "Loves sunbathing and birdwatching."
+    },
+    {
+        "id": null,
+        "name": "Zoe",
+        "age": 7,
+        "gender": "FEMALE",
+        "location": "Vaasa",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy22.jpg",
+        "breed": "Persian",
+        "bio": "Talkative and social."
+    },
+    {
+        "id": null,
+        "name": "Charlie",
+        "age": 1,
+        "gender": "MALE",
+        "location": "Turku",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy28.jpg",
+        "breed": "British Shorthair",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Simba",
+        "age": 4,
+        "gender": "MALE",
+        "location": "Lahti",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy10.jpg",
+        "breed": "Ragdoll",
+        "bio": "Graceful and independent."
+    },
+    {
+        "id": null,
+        "name": "Oliver",
+        "age": 5,
+        "gender": "MALE",
+        "location": "Lahti",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy12.jpg",
+        "breed": "Persian",
+        "bio": "Very vocal and affectionate."
+    },
+    {
+        "id": null,
+        "name": "Oscar",
+        "age": 4,
+        "gender": "MALE",
+        "location": "Espoo",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy15.jpg",
+        "breed": "Bengal",
+        "bio": "Gentle giant with a loud purr."
+    },
+    {
+        "id": null,
+        "name": "Mimi",
+        "age": 7,
+        "gender": "FEMALE",
+        "location": "Oulu",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy24.jpg",
+        "breed": "British Shorthair",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Luna",
+        "age": 3,
+        "gender": "FEMALE",
+        "location": "Tampere",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy21.jpg",
+        "breed": "British Shorthair",
+        "bio": "Very vocal and affectionate."
+    },
+    {
+        "id": null,
+        "name": "Charlie",
+        "age": 7,
+        "gender": "MALE",
+        "location": "Vaasa",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIy24.jpg",
+        "breed": "Abyssinian",
+        "bio": "Talkative and social."
+    }
+]
