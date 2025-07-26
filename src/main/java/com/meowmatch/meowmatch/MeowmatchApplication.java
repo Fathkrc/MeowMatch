@@ -42,5 +42,6 @@ public class MeowmatchApplication implements CommandLineRunner {
 //		conversationRepository.findAll().forEach(System.out::println);
 //		String response= openAiChatModel.call("who am I talking to");
 //		System.out.println(response);
+		catRepository.deleteAll();
 	}
 }
