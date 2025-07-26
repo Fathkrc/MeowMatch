@@ -1,0 +1,202 @@
+[
+    {
+        "id": null,
+        "name": "Oliver",
+        "age": 8,
+        "gender": "MALE",
+        "location": "Lahti",
+        "imageUrl": "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg",
+        "breed": "Oriental",
+        "bio": "Head tilt master."
+    },
+    {
+        "id": null,
+        "name": "Zoe",
+        "age": 5,
+        "gender": "FEMALE",
+        "location": "Espoo",
+        "imageUrl": "https://cdn2.thecatapi.com/images/bpc.jpg",
+        "breed": "British Shorthair",
+        "bio": "Energetic and loves climbing."
+    },
+    {
+        "id": null,
+        "name": "Luna",
+        "age": 1,
+        "gender": "FEMALE",
+        "location": "Oulu",
+        "imageUrl": "https://cdn2.thecatapi.com/images/c9.jpg",
+        "breed": "Persian",
+        "bio": "Floppy lap cat with big blue eyes."
+    },
+    {
+        "id": null,
+        "name": "Luna",
+        "age": 4,
+        "gender": "FEMALE",
+        "location": "Lappeenranta",
+        "imageUrl": "https://cdn2.thecatapi.com/images/7m.jpg",
+        "breed": "Russian Blue",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Oscar",
+        "age": 4,
+        "gender": "MALE",
+        "location": "Helsinki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/d3.jpg",
+        "breed": "British Shorthair",
+        "bio": "Loves sunbathing and birdwatching."
+    },
+    {
+        "id": null,
+        "name": "Nala",
+        "age": 6,
+        "gender": "FEMALE",
+        "location": "Turku",
+        "imageUrl": "https://cdn2.thecatapi.com/images/e5.jpg",
+        "breed": "Abyssinian",
+        "bio": "Gentle giant with a loud purr."
+    },
+    {
+        "id": null,
+        "name": "Jasper",
+        "age": 3,
+        "gender": "MALE",
+        "location": "Sein\u00e4joki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg",
+        "breed": "Ragdoll",
+        "bio": "Energetic and loves climbing."
+    },
+    {
+        "id": null,
+        "name": "Max",
+        "age": 7,
+        "gender": "MALE",
+        "location": "Helsinki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyMg.jpg",
+        "breed": "British Shorthair",
+        "bio": "Energetic and loves climbing."
+    },
+    {
+        "id": null,
+        "name": "Charlie",
+        "age": 7,
+        "gender": "MALE",
+        "location": "Oulu",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNA.jpg",
+        "breed": "Ragdoll",
+        "bio": "Floppy lap cat with big blue eyes."
+    },
+    {
+        "id": null,
+        "name": "Simba",
+        "age": 1,
+        "gender": "MALE",
+        "location": "Espoo",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNQ.jpg",
+        "breed": "Bengal",
+        "bio": "Floppy lap cat with big blue eyes."
+    },
+    {
+        "id": null,
+        "name": "Misty",
+        "age": 5,
+        "gender": "FEMALE",
+        "location": "Helsinki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNg.jpg",
+        "breed": "Bengal",
+        "bio": "Gentle giant with a loud purr."
+    },
+    {
+        "id": null,
+        "name": "Simba",
+        "age": 6,
+        "gender": "MALE",
+        "location": "Jyv\u00e4skyl\u00e4",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNw.jpg",
+        "breed": "Maine Coon",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Daisy",
+        "age": 6,
+        "gender": "FEMALE",
+        "location": "Helsinki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyOA.jpg",
+        "breed": "Abyssinian",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Tasha",
+        "age": 2,
+        "gender": "FEMALE",
+        "location": "Sein\u00e4joki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyOQ.jpg",
+        "breed": "Oriental",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Nala",
+        "age": 4,
+        "gender": "FEMALE",
+        "location": "Sein\u00e4joki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMA.jpg",
+        "breed": "Maine Coon",
+        "bio": "Talkative and social."
+    },
+    {
+        "id": null,
+        "name": "Finn",
+        "age": 5,
+        "gender": "MALE",
+        "location": "Helsinki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMQ.jpg",
+        "breed": "Bengal",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Max",
+        "age": 7,
+        "gender": "MALE",
+        "location": "Helsinki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMg.jpg",
+        "breed": "Scottish Fold",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Luna",
+        "age": 2,
+        "gender": "FEMALE",
+        "location": "Espoo",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMw.jpg",
+        "breed": "Bengal",
+        "bio": "Loves sunbathing and birdwatching."
+    },
+    {
+        "id": null,
+        "name": "Charlie",
+        "age": 4,
+        "gender": "MALE",
+        "location": "Vaasa",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzNA.jpg",
+        "breed": "Abyssinian",
+        "bio": "Quiet, fluffy, and loves naps."
+    },
+    {
+        "id": null,
+        "name": "Jasper",
+        "age": 1,
+        "gender": "MALE",
+        "location": "Oulu",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzNQ.jpg",
+        "breed": "Maine Coon",
+        "bio": "Quiet, fluffy, and loves naps."
+    }
+]
