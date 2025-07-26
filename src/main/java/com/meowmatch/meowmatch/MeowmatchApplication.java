@@ -33,15 +33,9 @@ public class MeowmatchApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO: temporary hard coded cat created and saved to repository cat Repo must not be here
-//		Cat cat=new Cat("asd","asd",2, Gender.MALE,"asdf","asdf","asd","asd");
-//		catRepository.save(cat);
-//		Conversation conversation=new Conversation("1","asd", List.of(new ChatMessage("Hello","asd", LocalDateTime.now())));
-//		conversationRepository.save(conversation);
-		catRepository.findAll().forEach(System.out::println);
-//		conversationRepository.findAll().forEach(System.out::println);
-//		String response= openAiChatModel.call("who am I talking to");
-//		System.out.println(response);
+
+//		catRepository.findAll().forEach(System.out::println);
 		catRepository.deleteAll();
+		conversationRepository.deleteAll();
 	}
 }

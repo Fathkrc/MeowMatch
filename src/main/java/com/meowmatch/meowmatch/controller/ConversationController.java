@@ -42,12 +42,25 @@ public class ConversationController {
     }
 
 //    //todo: Deleting Conversation this can wait !!
-//    @DeleteMapping("/conversations")
-//    public ResponseEntity<Void> deleteConversationById(@RequestBody String id){
-//        conversationService.deleteById(id);
-//        return ResponseEntity.noContent().build(); // 204 No Content
-//
-//    }
+    @DeleteMapping("/conversations/{conversationId}")
+    public ResponseEntity<Void> deleteConversationById(@PathVariable String conversationId ){
+        conversationService.deleteById(conversationId);
+        return ResponseEntity.noContent().build(); // 204 No Content
+
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping("/conversations/{conversationId}")
+    public Conversation getConversation(
+            @PathVariable String conversationId
+    ) {
+        return conversationRepository.findById(conversationId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Unable to find conversation with the ID " + conversationId
+                ));
+    }
+
     // adding message to conversation
     // MOVE THIS TO SERVICE
     @PutMapping("/conversations/{conversationId}")
@@ -56,7 +69,7 @@ public class ConversationController {
 
         // we are checking here if the cat exist with that authorId and if not we throw an error
         catRepository.findById(chatMessage.authorId()).orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Cat with that id is not found ")
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Cat with "+chatMessage.authorId()+" id is not found ")
         );
 
         // if that conversation not exist app throws an error
