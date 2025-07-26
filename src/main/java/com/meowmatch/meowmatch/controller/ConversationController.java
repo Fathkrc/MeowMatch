@@ -51,7 +51,7 @@ public class ConversationController {
 
     @CrossOrigin(origins = "*")
     @GetMapping("/conversations/{conversationId}")
-    public Conversation getConversation(
+    public Conversation getConversationWithId(
             @PathVariable String conversationId
     ) {
         return conversationRepository.findById(conversationId)
@@ -61,10 +61,10 @@ public class ConversationController {
                 ));
     }
 
-    // adding message to conversation
+    //todo: adding message to conversation
     // MOVE THIS TO SERVICE
     @PutMapping("/conversations/{conversationId}")
-    public Conversation addMessageToConversation(
+    public Conversation addMessageToExistingConversation(
             @PathVariable String conversationId,@RequestBody ChatMessage chatMessage){
 
         // we are checking here if the cat exist with that authorId and if not we throw an error
@@ -75,7 +75,7 @@ public class ConversationController {
         // if that conversation not exist app throws an error
         Conversation conversation= conversationRepository.findById(conversationId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND
-                        , "Unable to Find profile"));
+                        , "Unable to Find conversation with that id"));
 
         // I am creating a new chatMessage to save with the actual datetime because chatMessage is a record and immutable
          //TODO:: NEED TO VALIDATE AUTHOR OF A MESSAGE HAPPENED TO BE ONLY THE PROFILE ASSOCIATED WITH !!!!!!!

@@ -1,11 +1,13 @@
 package com.meowmatch.meowmatch;
 
+import com.meowmatch.meowmatch.controller.CatController;
 import com.meowmatch.meowmatch.models.Cat;
 import com.meowmatch.meowmatch.models.conversations.ChatMessage;
 import com.meowmatch.meowmatch.models.conversations.Conversation;
 import com.meowmatch.meowmatch.models.enums.Gender;
 import com.meowmatch.meowmatch.repository.CatRepository;
 import com.meowmatch.meowmatch.repository.ConversationRepository;
+import com.meowmatch.meowmatch.service.CatService;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,6 +26,8 @@ public class MeowmatchApplication implements CommandLineRunner {
 	private ConversationRepository conversationRepository;
 	@Autowired
 	private OpenAiChatModel openAiChatModel;
+	@Autowired
+	private CatController catController;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MeowmatchApplication.class, args);
@@ -33,9 +37,10 @@ public class MeowmatchApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
 //		catRepository.findAll().forEach(System.out::println);
 		catRepository.deleteAll();
+		catController.seedCats();
 		conversationRepository.deleteAll();
+
 	}
 }
