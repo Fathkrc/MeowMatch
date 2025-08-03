@@ -18,7 +18,7 @@ I am building a solid REST API foundation first.
 - Maven
 
 ---
-
+![swagger Documentation.png](src/main/resources/swagger%20Documentation.png)
 ## 📦 Setup Instructions
 
 1️⃣ **Clone the repo**

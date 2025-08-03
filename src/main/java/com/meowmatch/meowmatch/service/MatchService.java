@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 @Service
 public class MatchService {
@@ -39,10 +40,10 @@ public class MatchService {
 
         Cat matchedCat = otherCats.get(new Random().nextInt(otherCats.size()));
 
-        Conversation convo = new Conversation(null, matchedCat.id(), new ArrayList<>());
+        Conversation convo = new Conversation(UUID.randomUUID().toString() , matchedCat.id(), new ArrayList<>());
         Conversation conversation= conversationRepository.save(convo);
         // todo: why null ID on match??
-        Match match1=new Match("", matchedCat ,conversation.id());
+        Match match1=new Match(UUID.randomUUID().toString(), matchedCat ,conversation.id());
         matchRepository.save(match1);
         return conversation;
     }
