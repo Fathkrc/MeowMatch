@@ -27,7 +27,7 @@ public class MeowmatchApplication implements CommandLineRunner {
 	@Autowired
 	private OpenAiChatModel openAiChatModel;
 	@Autowired
-	private CatController catController;
+	private CatService catService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MeowmatchApplication.class, args);
@@ -39,7 +39,7 @@ public class MeowmatchApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 //		catRepository.findAll().forEach(System.out::println);
 		catRepository.deleteAll();
-		catController.seedCats();
+		catService.seedAllCatsFromJsonFile();
 		conversationRepository.deleteAll();
 
 	}

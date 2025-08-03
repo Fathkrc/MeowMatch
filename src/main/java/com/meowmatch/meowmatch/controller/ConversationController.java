@@ -5,6 +5,7 @@ import com.meowmatch.meowmatch.models.conversations.Conversation;
 import com.meowmatch.meowmatch.models.dto.CreateConversationRequest;
 import com.meowmatch.meowmatch.repository.CatRepository;
 import com.meowmatch.meowmatch.repository.ConversationRepository;
+import com.meowmatch.meowmatch.service.CatService;
 import com.meowmatch.meowmatch.service.ConversationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,28 +23,32 @@ public class ConversationController {
     private final ConversationRepository conversationRepository;
     private final CatRepository catRepository;
     //TODO: these are temporary I will take business logic to service layer !!!!!!!!!!!!!
+    private final CatService catService;
 
-    public ConversationController(ConversationService conversationService, ConversationRepository conversationRepository, CatRepository catRepository) {
+    public ConversationController(ConversationService conversationService, ConversationRepository conversationRepository, CatRepository catRepository, CatService catService) {
         this.conversationService = conversationService;
         this.conversationRepository = conversationRepository;
         this.catRepository = catRepository;
+        this.catService = catService;
     }
+
     // Create conversation request with userId
     @PostMapping("/conversations")
-    public ResponseEntity<String> createNewConversation(@RequestBody CreateConversationRequest request){
+    public ResponseEntity<String> createNewConversation(@RequestBody CreateConversationRequest request) {
 
         return ResponseEntity.ok(conversationService.createNewConversation(request));
 
     }
+
     // Get All conversations
     @GetMapping("/conversations")
-    public List<Conversation> getAllConversations(){
+    public List<Conversation> getAllConversations() {
         return conversationService.getAllConversation();
     }
 
-//    //todo: Deleting Conversation this can wait !!
+
     @DeleteMapping("/conversations/{conversationId}")
-    public ResponseEntity<Void> deleteConversationById(@PathVariable String conversationId ){
+    public ResponseEntity<Void> deleteConversationById(@PathVariable String conversationId) {
         conversationService.deleteById(conversationId);
         return ResponseEntity.noContent().build(); // 204 No Content
 
@@ -54,38 +59,16 @@ public class ConversationController {
     public Conversation getConversationWithId(
             @PathVariable String conversationId
     ) {
-        return conversationRepository.findById(conversationId)
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND,
-                        "Unable to find conversation with the ID " + conversationId
-                ));
+        return conversationService.getConversationsWithId(conversationId);
+
     }
 
     //todo: adding message to conversation
     // MOVE THIS TO SERVICE
     @PutMapping("/conversations/{conversationId}")
     public Conversation addMessageToExistingConversation(
-            @PathVariable String conversationId,@RequestBody ChatMessage chatMessage){
-
-        // we are checking here if the cat exist with that authorId and if not we throw an error
-        catRepository.findById(chatMessage.authorId()).orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Cat with "+chatMessage.authorId()+" id is not found ")
-        );
-
-        // if that conversation not exist app throws an error
-        Conversation conversation= conversationRepository.findById(conversationId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND
-                        , "Unable to Find conversation with that id"));
-
-        // I am creating a new chatMessage to save with the actual datetime because chatMessage is a record and immutable
-         //TODO:: NEED TO VALIDATE AUTHOR OF A MESSAGE HAPPENED TO BE ONLY THE PROFILE ASSOCIATED WITH !!!!!!!
-        ChatMessage messageWithTime= new ChatMessage(
-                chatMessage.messageText(),
-                chatMessage.authorId(),
-                LocalDateTime.now()
-        );
-        conversation.messages().add(messageWithTime);
-        conversationRepository.save(conversation);
-        return conversation;
+            @PathVariable String conversationId,
+            @RequestBody ChatMessage chatMessage) {
+       return conversationService.addMessageToExistingConversationService(conversationId,chatMessage);
     }
 }
