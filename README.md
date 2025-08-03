@@ -16,9 +16,11 @@ I am building a solid REST API foundation first.
 - Spring Data MongoDB
 - Spring AI
 - Maven
+- Swagger UI
 
 ---
-![swagger Documentation.png](src/main/resources/swagger%20Documentation.png)
+![Swagger UI](docs/swagger.png)
+
 ## 📦 Setup Instructions
 
 1️⃣ **Clone the repo**
