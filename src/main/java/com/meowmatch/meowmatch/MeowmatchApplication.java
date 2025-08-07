@@ -8,6 +8,7 @@ import com.meowmatch.meowmatch.models.enums.Gender;
 import com.meowmatch.meowmatch.repository.CatRepository;
 import com.meowmatch.meowmatch.repository.ConversationRepository;
 import com.meowmatch.meowmatch.service.CatService;
+import com.meowmatch.meowmatch.service.OllamaService;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,28 +20,27 @@ import java.util.List;
 
 @SpringBootApplication
 public class MeowmatchApplication implements CommandLineRunner {
-	//Todo: remove those from application main class after tests
-	@Autowired
-	private CatRepository catRepository;
-	@Autowired
-	private ConversationRepository conversationRepository;
-	@Autowired
-	private OpenAiChatModel openAiChatModel;
-	@Autowired
-	private CatService catService;
+    //Todo: remove those from application main class after tests
+    @Autowired
+    private CatRepository catRepository;
+    @Autowired
+    private ConversationRepository conversationRepository;
+    @Autowired
+    private CatService catService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(MeowmatchApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(MeowmatchApplication.class, args);
 
-	}
+    }
 
 
-	@Override
-	public void run(String... args) throws Exception {
+    @Override
+    public void run(String... args) throws Exception {
 //		catRepository.findAll().forEach(System.out::println);
-		catRepository.deleteAll();
-		catService.seedAllCatsFromJsonFile();
-		conversationRepository.deleteAll();
+        catRepository.deleteAll();
+        catService.seedAllCatsFromJsonFile();
+        conversationRepository.deleteAll();
+//String request=	ollamaService.askOllama("hey are you working?"); It is working !!
 
-	}
+    }
 }

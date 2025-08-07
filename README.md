@@ -20,7 +20,7 @@ I am building a solid REST API foundation first.
 
 ---
 ![Swagger UI](docs/swagger.png)
-
+![Postman UI](docs/ChatWithOllama.png)
 ## 📦 Setup Instructions
 
 1️⃣ **Clone the repo**

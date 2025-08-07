@@ -6,6 +6,7 @@ import com.meowmatch.meowmatch.models.conversations.Conversation;
 import com.meowmatch.meowmatch.models.dto.CreateConversationRequest;
 import com.meowmatch.meowmatch.repository.CatRepository;
 import com.meowmatch.meowmatch.repository.ConversationRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -20,15 +21,17 @@ public class ConversationService {
 
     private final ConversationRepository conversationRepository;
     private final CatRepository catRepository;
+    private final OllamaService ollamaService;
 
-    public ConversationService(ConversationRepository conversationRepository, CatRepository catRepository) {
+    public ConversationService(ConversationRepository conversationRepository, CatRepository catRepository,@Lazy OllamaService ollamaService) {
         this.conversationRepository = conversationRepository;
         this.catRepository = catRepository;
+        this.ollamaService = ollamaService;
     }
 // todo : move the checking cats existence as a helper method
     public String createNewConversation(CreateConversationRequest request) {
-        catRepository.findById(request.profileId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        getAuthorWithAuthorIdOrThrow(request.profileId());
+
         Conversation conversation = new Conversation(UUID.randomUUID().toString(),
                 request.profileId(),
                 new ArrayList<>());
@@ -41,17 +44,12 @@ public class ConversationService {
     }
 
     public void deleteById(String id) {
-        Conversation conversation = conversationRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        Conversation conversation = getConversationWithConversationIdOrThrow(id);
         conversationRepository.delete(conversation);
     }
 
     public Conversation getConversationsWithId(String conversationId) {
-        return conversationRepository.findById(conversationId)
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND,
-                        "Unable to find conversation with the ID " + conversationId
-                ));
+        return getConversationWithConversationIdOrThrow(conversationId);
 
     }
 
@@ -66,10 +64,12 @@ public class ConversationService {
         //TODO:: NEED TO VALIDATE AUTHOR OF A MESSAGE HAPPENED TO BE ONLY THE PROFILE ASSOCIATED WITH !!!!!!!
         ChatMessage messageWithTime = new ChatMessage(
                 chatMessage.messageText(),
-                conversationRequestedCat.id(),
+                "a",
                 LocalDateTime.now()
         );
         conversation.messages().add(messageWithTime);
+        ChatMessage chatMessageFromOllama= ollamaService.responseToAddedMessageToConversation(conversationId,conversationRequestedCat,messageWithTime);
+        conversation.messages().add(chatMessageFromOllama);
         conversationRepository.save(conversation);
         return conversation;
     }

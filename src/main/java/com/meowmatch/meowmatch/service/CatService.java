@@ -3,6 +3,7 @@ package com.meowmatch.meowmatch.service;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.meowmatch.meowmatch.models.Cat;
+import com.meowmatch.meowmatch.models.enums.Gender;
 import com.meowmatch.meowmatch.repository.CatRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,11 +28,14 @@ private final CatRepository catRepository;
     }
 
     public ResponseEntity<String> seedAllCatsFromJsonFile() {
+        // Hard coded my lovely lovemaker cat
+        Cat furkir=new Cat("a","Furkir",4, Gender.MALE,"Isparta","","Persian","Lovely and playful, never harm any creatures exept his toys");
         try {
             List<Cat> existingProfiles = gson.fromJson(
                     new FileReader(CATS_JSON_FILE_URL),
                     new TypeToken<ArrayList<Cat>>() {}.getType()
             );
+            existingProfiles.add(furkir);
             catRepository.saveAll(existingProfiles);
             return ResponseEntity.ok("✅ Seeded cats to DB");
         } catch (Exception e) {
