@@ -5,8 +5,11 @@ import com.google.gson.reflect.TypeToken;
 import com.meowmatch.meowmatch.models.Cat;
 import com.meowmatch.meowmatch.models.enums.Gender;
 import com.meowmatch.meowmatch.repository.CatRepository;
+import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -41,5 +44,10 @@ private final CatRepository catRepository;
         } catch (Exception e) {
             return ResponseEntity.status(500).body("❌ Failed to seed cats: " + e.getMessage());
         }
+    }
+
+    public Cat getById(String catId) {
+       return catRepository.findById(catId)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cat with " + catId + " id is not found"));
     }
 }

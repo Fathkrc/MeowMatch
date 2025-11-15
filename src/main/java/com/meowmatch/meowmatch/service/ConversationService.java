@@ -22,23 +22,26 @@ public class ConversationService {
     private final ConversationRepository conversationRepository;
     private final CatRepository catRepository;
     private final OllamaService ollamaService;
+    private final SwipeStateService swipeStateService;
 
-    public ConversationService(ConversationRepository conversationRepository, CatRepository catRepository,@Lazy OllamaService ollamaService) {
+    public ConversationService(ConversationRepository conversationRepository, CatRepository catRepository, @Lazy OllamaService ollamaService, SwipeStateService swipeStateService) {
         this.conversationRepository = conversationRepository;
         this.catRepository = catRepository;
         this.ollamaService = ollamaService;
+        this.swipeStateService = swipeStateService;
     }
 // todo : move the checking cats existence as a helper method
     public String createNewConversation(CreateConversationRequest request) {
-        getAuthorWithAuthorIdOrThrow(request.profileId());
-
+        getAuthorWithAuthorIdOrThrow(request.userId());
+        swipeStateService.isThisMatchedProfile(request.userId(),request.targetedProfileId());
         Conversation conversation = new Conversation(UUID.randomUUID().toString(),
-                request.profileId(),
+                request.userId(),
+                request.targetedProfileId(),
                 new ArrayList<>());
         conversationRepository.save(conversation);
         return conversation.profileId() != null ? "saved" : "no profile id ";
     }
-
+// this should be admin
     public List<Conversation> getAllConversation() {
         return conversationRepository.findAll();
     }
