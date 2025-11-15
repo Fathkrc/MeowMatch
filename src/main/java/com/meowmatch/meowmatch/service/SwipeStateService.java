@@ -20,7 +20,7 @@ public class SwipeStateService {
     public boolean isLiked(String userId,String targetedUserId ){
 
         SwipeState swipeState=swipeStateRepository.findById(userId).orElseThrow() ; // throws if not found
-        return swipeState.dislike(targetedUserId);
+//        return swipeState.getdislikedCats().
     }
 
     public boolean isThisMatchedProfile(String s) {
