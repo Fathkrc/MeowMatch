@@ -25,9 +25,9 @@ public class MatchController {
         this.matchService = matchService;
     }
 
-    @PostMapping("/{catId}")
-    public ResponseEntity<Conversation> matchRequest(@PathVariable String catId) {
-        return ResponseEntity.ok(matchService.createBasicMatch(catId));
+    @PostMapping("{userId}/{requestedCatId}")
+    public ResponseEntity<Conversation> matchRequest(@PathVariable String requestedCatId,String userId) {
+        return ResponseEntity.ok(matchService.createBasicMatch(requestedCatId,userId));
     }
 
     @GetMapping

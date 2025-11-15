@@ -6,8 +6,12 @@ import java.util.List;
 
 public record Conversation(
         String id,
-        String profileId,
+
+        String profileId,// one cat we match
+        String matchedProfileId,
+
         List<ChatMessage> messages
 
 ) {
+
 }

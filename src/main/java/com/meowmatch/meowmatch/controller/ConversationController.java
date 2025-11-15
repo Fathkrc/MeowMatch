@@ -45,7 +45,12 @@ public class ConversationController {
     public List<Conversation> getAllConversations() {
         return conversationService.getAllConversation();
     }
-
+//
+//    @GetMapping("/conversations/{catId}")
+//    public List<Conversation> getConversationsWithCatId(@PathVariable String conversationId) {
+//        return conversationService.getConversationsUserHas(conversationId);
+//    }
+//
 
     @DeleteMapping("/conversations/{conversationId}")
     public ResponseEntity<Void> deleteConversationById(@PathVariable String conversationId) {
