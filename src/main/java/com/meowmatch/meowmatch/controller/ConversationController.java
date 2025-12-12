@@ -72,6 +72,7 @@ public class ConversationController {
     // MOVE THIS TO SERVICE
     @PutMapping("/conversations/{conversationId}")
     public Conversation addMessageToExistingConversation(
+
             @PathVariable String conversationId,
             @RequestBody ChatMessage chatMessage) {
        return conversationService.addMessageToExistingConversationService(conversationId,chatMessage);

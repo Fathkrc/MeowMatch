@@ -13,13 +13,14 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
 public class CatService {
 private final CatRepository catRepository;
     private final Gson gson;
-    private static final String CATS_JSON_FILE_URL= "src/main/resources/sample_cats1.json";
+    private static final String CATS_JSON_FILE_URL= "/Users/fatihkaraca/Desktop/meowmatch/MeowMatch/src/main/resources/sample_cats1.json";
 
     public CatService(CatRepository catRepository, Gson gson) {
         this.catRepository = catRepository;
@@ -39,6 +40,7 @@ private final CatRepository catRepository;
                     new TypeToken<ArrayList<Cat>>() {}.getType()
             );
             existingProfiles.add(furkir);
+            System.out.print("cats seed");
             catRepository.saveAll(existingProfiles);
             return ResponseEntity.ok("✅ Seeded cats to DB");
         } catch (Exception e) {
@@ -49,5 +51,14 @@ private final CatRepository catRepository;
     public Cat getById(String catId) {
        return catRepository.findById(catId)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cat with " + catId + " id is not found"));
+    }
+//
+//    public Cat getRandomCat(String userId) {
+//        return;// random cat logic
+//
+//    }
+
+    public List<Cat> findAll() {
+        return catRepository.findAll();
     }
 }

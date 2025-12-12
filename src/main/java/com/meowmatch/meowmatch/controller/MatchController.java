@@ -19,12 +19,15 @@ import java.util.Random;
 @RestController
 @RequestMapping("/matches")
 public class MatchController {
+    // this will work like messages section we will see whom we match and our conservations
+
     private final MatchService matchService;
 
     public MatchController(MatchService matchService) {
         this.matchService = matchService;
     }
 
+    //todo: this will go to swipe controller
     @PostMapping("{userId}/{requestedCatId}")
     public ResponseEntity<Conversation> matchRequest(@PathVariable String requestedCatId,String userId) {
         return ResponseEntity.ok(matchService.createBasicMatch(requestedCatId,userId));

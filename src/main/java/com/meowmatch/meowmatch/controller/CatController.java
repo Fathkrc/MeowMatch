@@ -24,8 +24,6 @@ private final CatService catService;
         return ResponseEntity.ok(catService.getAllCat());
     }
 
-//    @PostMapping("/seedCats")
-//    public ResponseEntity<String> seedCatsToDb() {
-//        return catService.seedAllCatsFromJsonFile();
-//    }
+
+
 }

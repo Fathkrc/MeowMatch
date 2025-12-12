@@ -33,7 +33,7 @@ public class ConversationService {
 // todo : move the checking cats existence as a helper method
     public String createNewConversation(CreateConversationRequest request) {
         getAuthorWithAuthorIdOrThrow(request.userId());
-        swipeStateService.isThisMatchedProfile(request.userId(),request.targetedProfileId());
+        swipeStateService.isMatched(request.userId(), request.targetedProfileId());
         Conversation conversation = new Conversation(UUID.randomUUID().toString(),
                 request.userId(),
                 request.targetedProfileId(),
