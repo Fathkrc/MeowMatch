@@ -33,7 +33,7 @@ private final CatRepository catRepository;
 
     public ResponseEntity<String> seedAllCatsFromJsonFile() {
         // Hard coded my lovely lovemaker cat
-        Cat furkir=new Cat("a","Furkir",4, Gender.MALE,"Isparta","","Persian","Lovely and playful, never harm any creatures exept his toys");
+        Cat furkir=new Cat("furkir","Furkir",4, Gender.MALE,"Isparta","","Persian","Lovely and playful, never harm any creatures exept his toys");
         try {
             List<Cat> existingProfiles = gson.fromJson(
                     new FileReader(CATS_JSON_FILE_URL),
@@ -60,5 +60,13 @@ private final CatRepository catRepository;
 
     public List<Cat> findAll() {
         return catRepository.findAll();
+    }
+
+    public Cat getRandomCat(String userId) {
+        return null;
+    }
+
+    public Cat findById(String requestedCatId) {
+        return catRepository.findById(requestedCatId).orElseThrow(()->new ResponseStatusException(HttpStatus.NO_CONTENT,"user Not Found"));
     }
 }

@@ -29,7 +29,7 @@ public class MatchController {
 
     //todo: this will go to swipe controller
     @PostMapping("{userId}/{requestedCatId}")
-    public ResponseEntity<Conversation> matchRequest(@PathVariable String requestedCatId,String userId) {
+    public ResponseEntity<Match> matchRequest(@PathVariable String requestedCatId,String userId) {
         return ResponseEntity.ok(matchService.createBasicMatch(requestedCatId,userId));
     }
 

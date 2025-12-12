@@ -15,7 +15,9 @@ import org.springframework.web.server.ResponseStatusException;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@RestController
+@RestController()
+@RequestMapping("conversations/")
+
 public class ConversationController {
     private final ConversationService conversationService;
 
@@ -33,7 +35,7 @@ public class ConversationController {
     }
 
     // Create conversation request with userId
-    @PostMapping("/conversations")
+    @PostMapping()
     public ResponseEntity<String> createNewConversation(@RequestBody CreateConversationRequest request) {
 
         return ResponseEntity.ok(conversationService.createNewConversation(request));
@@ -41,7 +43,7 @@ public class ConversationController {
     }
 
     // Get All conversations
-    @GetMapping("/conversations")
+    @GetMapping()
     public List<Conversation> getAllConversations() {
         return conversationService.getAllConversation();
     }
@@ -52,7 +54,7 @@ public class ConversationController {
 //    }
 //
 
-    @DeleteMapping("/conversations/{conversationId}")
+    @DeleteMapping("{conversationId}")
     public ResponseEntity<Void> deleteConversationById(@PathVariable String conversationId) {
         conversationService.deleteById(conversationId);
         return ResponseEntity.noContent().build(); // 204 No Content
@@ -60,7 +62,7 @@ public class ConversationController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/conversations/{conversationId}")
+    @GetMapping("{conversationId}")
     public Conversation getConversationWithId(
             @PathVariable String conversationId
     ) {
@@ -70,7 +72,7 @@ public class ConversationController {
 
     //todo: adding message to conversation
     // MOVE THIS TO SERVICE
-    @PutMapping("/conversations/{conversationId}")
+    @PutMapping("{conversationId}")
     public Conversation addMessageToExistingConversation(
 
             @PathVariable String conversationId,
