@@ -42,6 +42,7 @@ public class SwipeStateService {
                 .orElse( swipeStateRepository.save(new SwipeState(userId)));
         userSwipeState.like(requestedCatId);
         swipeStateRepository.save(userSwipeState);
+
         return matchService.createBasicMatch(userId,requestedCatId);
     }
 // todo: ADD NEXT MECHANICS
