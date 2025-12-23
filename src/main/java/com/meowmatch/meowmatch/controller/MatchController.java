@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-@RequestMapping("/matches")
+@RequestMapping("matches/")
 public class MatchController {
     // this will work like messages section we will see whom we match and our conservations
 
@@ -28,12 +28,22 @@ public class MatchController {
     }
 
     //todo: this will go to swipe controller
-    @PostMapping("{userId}/{requestedCatId}")
-    public ResponseEntity<Match> matchRequest(@PathVariable String requestedCatId,String userId) {
-        return ResponseEntity.ok(matchService.createBasicMatch(requestedCatId,userId));
+//    @PostMapping("{userId}/{requestedCatId}")
+//    public ResponseEntity<Match> matchRequest(@PathVariable String requestedCatId,String userId) {
+//        return ResponseEntity.ok(matchService.createBasicMatch(requestedCatId,userId));
+//    }
+//    @GetMapping
+//    public ResponseEntity<List<Match>> getMatches(){
+//
+//    }
+    @GetMapping
+    @RequestMapping("{userId}")
+    public ResponseEntity<List<Match>> getUsersMatches(@PathVariable String userId){
+       return ResponseEntity.ok(matchService.getUsersMatch(userId));
     }
 
     @GetMapping
+    @RequestMapping("admin")
     public List<Match> getAllMatches(){
         return matchService.getAllCatMatches();
     }

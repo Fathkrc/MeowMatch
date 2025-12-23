@@ -43,7 +43,7 @@ public class ConversationController {
     }
 
     // Get All conversations
-    @GetMapping()
+    @GetMapping()// admin
     public List<Conversation> getAllConversations() {
         return conversationService.getAllConversation();
     }

@@ -23,17 +23,18 @@ public class SwipeController {
     }
 
     @GetMapping("{userId}/next")
-    public Cat nextProfileToSwipe(String userId){
+    public Cat nextProfileToSwipe(@PathVariable String userId){
        return swipeService.nextProfile(userId);
     }
 
 
     @PostMapping("{userId}/like/{requestedCatId}")
-    public ResponseEntity<Match> matchRequest(@PathVariable String requestedCatId, String userId) {
-        return ResponseEntity.ok(swipeService.createBasicMatch(requestedCatId,userId));
+    public ResponseEntity<Match> like(@PathVariable String userId,@PathVariable String requestedCatId) {
+        return ResponseEntity.ok(swipeService.createBasicMatch(userId,
+                requestedCatId));
     }
     @PostMapping("{userId}/dislike/{requestedCatId}")
-    public ResponseEntity<String> dislikeProfile(@PathVariable String requestedCatId, String userId) {
+    public ResponseEntity<String> dislike(@PathVariable String requestedCatId,@PathVariable String userId) {
         return swipeService.dislikeProfile(requestedCatId, userId);
     }
     @GetMapping("allStates")

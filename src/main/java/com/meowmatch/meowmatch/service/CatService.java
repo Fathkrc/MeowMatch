@@ -62,9 +62,6 @@ private final CatRepository catRepository;
         return catRepository.findAll();
     }
 
-    public Cat getRandomCat(String userId) {
-        return null;
-    }
 
     public Cat findById(String requestedCatId) {
         return catRepository.findById(requestedCatId).orElseThrow(()->new ResponseStatusException(HttpStatus.NO_CONTENT,"user Not Found"));

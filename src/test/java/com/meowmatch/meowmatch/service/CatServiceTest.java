@@ -29,7 +29,7 @@ public class CatServiceTest {
         when(cats.findAll()).thenReturn(List.of(me, other));
         when(convos.findByParticipants("me", "other")).thenReturn(Optional.empty());
 
-        var service = new MatchService(cats, convos, new Random(0)); // inject Random for determinism
+        var service = new MatchService(cats, convos, new Random(0), catService); // inject Random for determinism
 
         Conversation created = service.matchWithRandomCat("me", Optional.empty());
 
@@ -54,7 +54,7 @@ public class CatServiceTest {
         when(cats.findAll()).thenReturn(List.of(me, other));
         when(convos.findByParticipants("me", "other")).thenReturn(Optional.of(existing));
 
-        var service = new MatchService(cats, convos, new Random(0));
+        var service = new MatchService(cats, convos, new Random(0), catService);
 
         var out = service.matchWithRandomCat("me", Optional.empty());
         assertThat(out.getId()).isEqualTo("c1");
