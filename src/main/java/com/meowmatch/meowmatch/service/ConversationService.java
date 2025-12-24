@@ -39,7 +39,7 @@ public class ConversationService {
                 request.targetedProfileId(),
                 new ArrayList<>());
         conversationRepository.save(conversation);
-        return conversation.profileId() != null ? "saved" : "no profile id ";
+        return conversation.profileId() != null ? "conversation created " : "no profile id ";
     }
 // this should be admin
     public List<Conversation> getAllConversation() {
@@ -91,4 +91,10 @@ public class ConversationService {
                         , "Unable to Find conversation with " + conversationId + " id"));
     }
 
+    public List<Conversation> getConversationsUserHas(String catId) {
+        return conversationRepository.findAll()
+                .stream()
+                .filter(t->t.profileId().equals(catId))
+                .toList();
+    }
 }

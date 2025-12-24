@@ -21,17 +21,9 @@ import java.util.List;
 public class ConversationController {
     private final ConversationService conversationService;
 
-    //TODO: these are temporary I will take business logic to service layer !!!!!!!!!!!!!
-    private final ConversationRepository conversationRepository;
-    private final CatRepository catRepository;
-    //TODO: these are temporary I will take business logic to service layer !!!!!!!!!!!!!
-    private final CatService catService;
-
-    public ConversationController(ConversationService conversationService, ConversationRepository conversationRepository, CatRepository catRepository, CatService catService) {
+    public ConversationController(ConversationService conversationService) {
         this.conversationService = conversationService;
-        this.conversationRepository = conversationRepository;
-        this.catRepository = catRepository;
-        this.catService = catService;
+
     }
 
     // Create conversation request with userId
@@ -44,24 +36,16 @@ public class ConversationController {
 
     // Get All conversations
     @GetMapping()// admin
+    @RequestMapping("admin")
     public List<Conversation> getAllConversations() {
         return conversationService.getAllConversation();
     }
-//
-//    @GetMapping("/conversations/{catId}")
-//    public List<Conversation> getConversationsWithCatId(@PathVariable String conversationId) {
-//        return conversationService.getConversationsUserHas(conversationId);
-//    }
-//
 
-    @DeleteMapping("{conversationId}")
-    public ResponseEntity<Void> deleteConversationById(@PathVariable String conversationId) {
-        conversationService.deleteById(conversationId);
-        return ResponseEntity.noContent().build(); // 204 No Content
-
+    @GetMapping("cat/{catId}")
+    public List<Conversation> getConversationsWithCatId(@PathVariable String conversationId) {
+        return conversationService.getConversationsUserHas(conversationId);
     }
 
-    @CrossOrigin(origins = "*")
     @GetMapping("{conversationId}")
     public Conversation getConversationWithId(
             @PathVariable String conversationId
@@ -70,13 +54,18 @@ public class ConversationController {
 
     }
 
-    //todo: adding message to conversation
-    // MOVE THIS TO SERVICE
+    @DeleteMapping("{conversationId}")
+    public ResponseEntity<Void> deleteConversationById(@PathVariable String conversationId) {
+        conversationService.deleteById(conversationId);
+        return ResponseEntity.noContent().build(); // 204 No Content
+
+    }
+
     @PutMapping("{conversationId}")
     public Conversation addMessageToExistingConversation(
 
             @PathVariable String conversationId,
             @RequestBody ChatMessage chatMessage) {
-       return conversationService.addMessageToExistingConversationService(conversationId,chatMessage);
+        return conversationService.addMessageToExistingConversationService(conversationId, chatMessage);
     }
 }

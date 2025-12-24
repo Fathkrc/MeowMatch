@@ -20,7 +20,7 @@ public class SwipeState {
 
 
     // key: targetCatId, value: conversationId
-    private List<String> matchedIds = new ArrayList<>();
+    private Set<String> matchedIds = new HashSet<>();
 
     public SwipeState(String userCatId) {
         this.userCatId = userCatId;
@@ -41,15 +41,12 @@ public class SwipeState {
         likedCatIds.add(likedCat);
     }
 
-    public void dislike(Cat dislikedCat) {
-        dislikedCatIds.add(dislikedCat.id());
-    }
-//todo: should add match be here ??
-    public void addMatch(Match match) {
-        matchedIds.add(match.userCat().id());
+    public void dislike(String dislikedCat) {
+        dislikedCatIds.add(dislikedCat);
     }
 
-    public List<String> getMatches() {
+
+    public Set<String> getMatches() {
         return this.matchedIds;
     }
 }

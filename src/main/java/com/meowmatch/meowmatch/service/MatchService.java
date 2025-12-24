@@ -26,18 +26,16 @@ public class MatchService {
         this.catService = catService;
     }
 
-    public Match createBasicMatch(String userId,String requestedCatId) {
-
-        Cat user=catService.findById(userId);
-
+    public Match createBasicMatch(String userId, String requestedCatId) {
+        Cat user = catService.findById(userId);
         Cat matchedCat = catService.findById(requestedCatId);
 
-        Conversation convo = new Conversation(UUID.randomUUID().toString() ,userId, requestedCatId ,new ArrayList<>());
-        Conversation conversation= conversationRepository.save(convo);
-        Match match1=new Match(
+        Conversation convo = new Conversation(UUID.randomUUID().toString(), userId, requestedCatId, new ArrayList<>());
+        Conversation conversation = conversationRepository.save(convo);
+        Match match1 = new Match(
                 UUID.randomUUID().toString(),
-                user,
-                matchedCat.id() ,
+                user.id(),
+                matchedCat.id(),
                 conversation.id());
         matchRepository.save(match1);
         return match1;
@@ -49,9 +47,9 @@ public class MatchService {
 
     //its like messages section to see matches
     public List<Match> getUsersMatch(String userId) {
-         return matchRepository.findAll()
+        return matchRepository.findAll()
                 .stream()
-                .filter(t-> t.userCat().id().equals(userId))
+                .filter(t -> t.userCatId().equals(userId))
                 .toList();
     }
 }

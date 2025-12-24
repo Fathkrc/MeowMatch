@@ -7,6 +7,8 @@ import com.meowmatch.meowmatch.models.conversations.Conversation;
 import com.meowmatch.meowmatch.models.enums.Gender;
 import com.meowmatch.meowmatch.repository.CatRepository;
 import com.meowmatch.meowmatch.repository.ConversationRepository;
+import com.meowmatch.meowmatch.repository.MatchRepository;
+import com.meowmatch.meowmatch.repository.SwipeStateRepository;
 import com.meowmatch.meowmatch.service.CatService;
 import com.meowmatch.meowmatch.service.OllamaService;
 import org.springframework.ai.openai.OpenAiChatModel;
@@ -28,6 +30,12 @@ public class MeowmatchApplication implements CommandLineRunner {
     @Autowired
     private CatService catService;
 
+    @Autowired
+    private MatchRepository matchRepository;
+
+    @Autowired
+    private SwipeStateRepository swipeStateRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(MeowmatchApplication.class, args);
 
@@ -40,6 +48,9 @@ public class MeowmatchApplication implements CommandLineRunner {
         catRepository.deleteAll();
         catService.seedAllCatsFromJsonFile();
         conversationRepository.deleteAll();
+        matchRepository.deleteAll();
+        swipeStateRepository.deleteAll();
+
 //String request=	ollamaService.askOllama("hey are you working?"); It is working !!
 
     }
