@@ -20,7 +20,7 @@ import java.util.List;
 public class CatService {
 private final CatRepository catRepository;
     private final Gson gson;
-    private static final String CATS_JSON_FILE_URL= "/Users/fatihkaraca/Desktop/meowmatch/MeowMatch/src/main/resources/sample_cats1.json";
+    private static final String CATS_JSON_FILE_URL= "src/main/resources/sample_cats1.json";
 
     public CatService(CatRepository catRepository, Gson gson) {
         this.catRepository = catRepository;

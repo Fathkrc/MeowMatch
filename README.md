@@ -19,11 +19,15 @@ I am building a solid REST API foundation first.
 - Swagger UI
 
 ---
-![Swagger UI](docs/swagger.png)
-![Postman UI](docs/ChatWithOllama.png)
+![Swagger UI](docs/catController)
+![Swagger UI](docs/conversationController.png)
+![Swagger UI](docs/matchController.png)
+![Swagger UI](docs/swipeController.png)
+![Postman UI](docs/ollamaChatResponse.png)
 ## 📦 Setup Instructions
 
 1️⃣ **Clone the repo**
 ```bash
 git clone https://github.com/Fathkrc/MeowMatch.git
 cd MeowMatch
+use your own properties file to the same direction with template .

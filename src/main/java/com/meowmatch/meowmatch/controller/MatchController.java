@@ -37,7 +37,7 @@ public class MatchController {
 //
 //    }
     @GetMapping
-    @RequestMapping("{userId}")
+    @RequestMapping("{userId}/")
     public ResponseEntity<List<Match>> getUsersMatches(@PathVariable String userId){
        return ResponseEntity.ok(matchService.getUsersMatch(userId));
     }
