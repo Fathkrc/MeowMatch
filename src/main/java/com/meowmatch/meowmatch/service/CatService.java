@@ -64,6 +64,6 @@ private final CatRepository catRepository;
 
 
     public Cat findById(String requestedCatId) {
-        return catRepository.findById(requestedCatId).orElseThrow(()->new ResponseStatusException(HttpStatus.NO_CONTENT,"user Not Found"));
+        return catRepository.findById(requestedCatId).orElseThrow(()->new ResponseStatusException(HttpStatus.NO_CONTENT,"user Not Found with " + requestedCatId+" id"));
     }
 }

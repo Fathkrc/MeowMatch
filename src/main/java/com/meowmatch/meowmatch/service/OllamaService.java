@@ -58,53 +58,52 @@ public class OllamaService {
         }
     }
 
-    public ChatMessage responseToAddedMessageToConversation(String conversationId, Cat cat,
-                                                     ChatMessage messageWithTime) {
-        String promptedCat = createPromptWithCat(cat,messageWithTime);
+    public ChatMessage responseToAddedMessageToConversation(String conversationId,
+                                                            ChatMessage messageWithTime) {
+        String promptedCat = createPromptWithCat( messageWithTime);
         String ollamaResponse = askOllama(promptedCat);
-        Conversation conversation=conversationService.getConversationsWithId(conversationId);
-        Conversation existingConversation = conversationService.getConversationsWithId(conversationId);
         System.out.println(ollamaResponse);
 
         Gson gson = new Gson();
         OllamaResponseObject ollamaResponseObject = gson.fromJson(ollamaResponse, OllamaResponseObject.class);
-        ChatMessage newChatMessageFromOllama = new ChatMessage(ollamaResponseObject.response(), cat.id(), LocalDateTime.now());
+        ChatMessage newChatMessageFromOllama = new ChatMessage(ollamaResponseObject.response(), messageWithTime.targetedProfile(), messageWithTime.authorId(),  LocalDateTime.now());
         System.out.println(newChatMessageFromOllama);
-        System.out.println(ollamaResponseObject);
+//        System.out.println(ollamaResponseObject);
         return newChatMessageFromOllama;
 
     }
-
-    private String createPromptWithCat(Cat cat,ChatMessage chatMessage) {
+// todo: make the matched user generic
+    private String createPromptWithCat( ChatMessage chatMessage) {
+        Cat profileForPrompt=catService.findById(chatMessage.targetedProfile());
         return
                 """
-                You are a %d year old %s %s . your name is %s and you just matched
-                with a 4-year-old male Persian cat named Furkir on MeowMatch.
-                This is an in-app text conversation between you two.
-                Pretend to be the provided cat and respond as if chatting on a dating app for cats.
-                Your bio is: %s
-                # Personality and Tone:
-                - Respond like a playful, witty cat on a dating app.
-                - Be short, friendly, and slightly flirty.
-                - Reflect confidence and curiosity.
-                - Use clever humor and wordplay where appropriate.
-                # Conversation Starters:
-                - Avoid generic greetings like "Hi" or "Hey".
-                - Instead, comment on something interesting or cat-specific.
-                - Use fun, feline-themed openers.
-                - You are the owner of the cat but still lets keep it like cats talking
-                # Profile Insights:
-                - Use information from the match's profile when available.
-                - Show curiosity about their habits, likes, and feline life.
-                - Compliment specific traits like fur, eyes, or purring style.
-                # Engagement:
-                - Ask open-ended, fun questions to keep the convo going.
-                - Keep it casual and banter-like.
-                - Suggest fun “dates” like window bird-watching or tuna night.
-                # Creativity:
-                - Incorporate light teasing, puns, or banter.
-                - Stay in character as a cool, chatty cat.
-                he just wrote this message %s to you
-                """.formatted(cat.age(), cat.breed(), cat.gender(), cat.name(), cat.bio(),chatMessage.messageText());
+                        You are a %d year old %s %s . your name is %s and you just matched
+                        with a 4-year-old male Persian cat named Furkir on MeowMatch.
+                        This is an in-app text conversation between you two.
+                        Pretend to be the provided cat and respond as if chatting on a dating app for cats.
+                        Your bio is: %s
+                        # Personality and Tone:
+                        - Respond like a playful, witty cat on a dating app.
+                        - Be short, friendly, and slightly flirty.
+                        - Reflect confidence and curiosity.
+                        - Use clever humor and wordplay where appropriate.
+                        # Conversation Starters:
+                        - Avoid generic greetings like "Hi" or "Hey".
+                        - Instead, comment on something interesting or cat-specific.
+                        - Use fun, feline-themed openers.
+                        - You are the owner of the cat but still lets keep it like cats talking
+                        # Profile Insights:
+                        - Use information from the match's profile when available.
+                        - Show curiosity about their habits, likes, and feline life.
+                        - Compliment specific traits like fur, eyes, or purring style.
+                        # Engagement:
+                        - Ask open-ended, fun questions to keep the convo going.
+                        - Keep it casual and banter-like.
+                        - Suggest fun “dates” like window bird-watching or tuna night.
+                        # Creativity:
+                        - Incorporate light teasing, puns, or banter.
+                        - Stay in character as a cool, chatty cat.
+                        he just wrote this message %s to you
+                        """.formatted(profileForPrompt.age(), profileForPrompt.breed(), profileForPrompt.gender(), profileForPrompt.name(), profileForPrompt.bio(), chatMessage.messageText());
     }
 }

@@ -26,13 +26,13 @@ public class ConversationController {
 
     }
 
-    // Create conversation request with userId
-    @PostMapping()
-    public ResponseEntity<String> createNewConversation(@RequestBody CreateConversationRequest request) {
-
-        return ResponseEntity.ok(conversationService.createNewConversation(request));
-
-    }
+    //NOT NECESSARY ANYMORE ,MATCH IS ALREADY CREATING CONVO
+//    @PostMapping()
+//    public ResponseEntity<String> createNewConversation(@RequestBody CreateConversationRequest request) {
+//
+//        return ResponseEntity.ok(conversationService.createNewConversation(request));
+//
+//    }
 
     // Get All conversations
     @GetMapping()// admin
@@ -41,9 +41,10 @@ public class ConversationController {
         return conversationService.getAllConversation();
     }
 
+// This will be messages section for user
     @GetMapping("cat/{catId}")
-    public List<Conversation> getConversationsWithCatId(@PathVariable String conversationId) {
-        return conversationService.getConversationsUserHas(conversationId);
+    public List<Conversation> getConversationsWithCatId(@PathVariable String catId) {
+        return conversationService.getConversationsUserHas(catId);
     }
 
     @GetMapping("{conversationId}")
@@ -60,7 +61,7 @@ public class ConversationController {
         return ResponseEntity.noContent().build(); // 204 No Content
 
     }
-
+//todo: not working
     @PutMapping("{conversationId}")
     public Conversation addMessageToExistingConversation(
 

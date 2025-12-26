@@ -1,7 +1,6 @@
 package com.meowmatch.meowmatch.service;
 
 import com.meowmatch.meowmatch.models.Cat;
-import com.meowmatch.meowmatch.models.conversations.ChatMessage;
 import com.meowmatch.meowmatch.models.conversations.Conversation;
 import com.meowmatch.meowmatch.models.match.Match;
 import com.meowmatch.meowmatch.repository.CatRepository;
@@ -15,14 +14,12 @@ import java.util.*;
 public class MatchService {
 
     private final MatchRepository matchRepository;
-    private final CatRepository catRepository;
-    private final ConversationRepository conversationRepository;
+    private final ConversationService conversationService;
     private final CatService catService;
 
-    public MatchService(MatchRepository matchRepository, CatRepository catRepository, ConversationRepository conversationRepository, CatService catService) {
+    public MatchService(MatchRepository matchRepository, ConversationService conversationService, CatService catService) {
         this.matchRepository = matchRepository;
-        this.catRepository = catRepository;
-        this.conversationRepository = conversationRepository;
+        this.conversationService = conversationService;
         this.catService = catService;
     }
 
@@ -31,12 +28,12 @@ public class MatchService {
         Cat matchedCat = catService.findById(requestedCatId);
 
         Conversation convo = new Conversation(UUID.randomUUID().toString(), userId, requestedCatId, new ArrayList<>());
-        Conversation conversation = conversationRepository.save(convo);
+        conversationService.saveConversation(convo);
         Match match1 = new Match(
                 UUID.randomUUID().toString(),
                 user.id(),
                 matchedCat.id(),
-                conversation.id());
+                convo.id());
         matchRepository.save(match1);
         return match1;
     }
