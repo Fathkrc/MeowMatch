@@ -4,10 +4,8 @@ import com.meowmatch.meowmatch.models.Cat;
 import com.meowmatch.meowmatch.repository.CatRepository;
 import com.meowmatch.meowmatch.service.CatService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController()
@@ -26,6 +24,10 @@ private final CatService catService;
         return ResponseEntity.ok(catService.getAllCat());
     }
 
-
+@GetMapping
+@RequestMapping("{catId}")
+    public ResponseEntity<Cat> getCatById(@PathVariable String catId){
+        return ResponseEntity.ok(catService.findById(catId));
+}
 
 }
