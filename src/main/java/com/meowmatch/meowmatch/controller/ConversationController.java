@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController()
-@RequestMapping("conversations/")
+@RequestMapping("conversations")
 
 public class ConversationController {
     private final ConversationService conversationService;
@@ -36,18 +36,18 @@ public class ConversationController {
 
     // Get All conversations
     @GetMapping()// admin
-    @RequestMapping("admin")
+    @RequestMapping("/admin")
     public List<Conversation> getAllConversations() {
         return conversationService.getAllConversation();
     }
 
 // This will be messages section for user
-    @GetMapping("cat/{catId}")
+    @GetMapping("/cat/{catId}")
     public List<Conversation> getConversationsWithCatId(@PathVariable String catId) {
         return conversationService.getConversationsUserHas(catId);
     }
 
-    @GetMapping("{conversationId}")
+    @GetMapping("/{conversationId}")
     public Conversation getConversationWithId(
             @PathVariable String conversationId
     ) {
@@ -55,14 +55,14 @@ public class ConversationController {
 
     }
 
-    @DeleteMapping("{conversationId}")
+    @DeleteMapping("/{conversationId}")
     public ResponseEntity<Void> deleteConversationById(@PathVariable String conversationId) {
         conversationService.deleteById(conversationId);
         return ResponseEntity.noContent().build(); // 204 No Content
 
     }
 //todo: not working
-    @PutMapping("{conversationId}")
+    @PutMapping("/{conversationId}")
     public Conversation addMessageToExistingConversation(
 
             @PathVariable String conversationId,

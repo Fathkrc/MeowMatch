@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController()
-@RequestMapping("home/")
+@RequestMapping("/home")
 public class SwipeController {
 
     private final SwipeStateService swipeService;
@@ -22,22 +22,22 @@ public class SwipeController {
         this.swipeStateRepository = swipeStateRepository;
     }
 
-    @GetMapping("{userId}/next")
+    @GetMapping("/{userId}/next")
     public Cat nextProfileToSwipe(@PathVariable String userId){
        return swipeService.nextProfile(userId);
     }
 
 
-    @PostMapping("{userId}/like/{requestedCatId}")
+    @PostMapping("/{userId}/like/{requestedCatId}")
     public ResponseEntity<Match> like(@PathVariable String userId,@PathVariable String requestedCatId) {
         return ResponseEntity.ok(swipeService.createBasicMatch(userId,
                 requestedCatId));
     }
-    @PostMapping("{userId}/dislike/{requestedCatId}")
+    @PostMapping("/{userId}/dislike/{requestedCatId}")
     public ResponseEntity<String> dislike(@PathVariable String requestedCatId,@PathVariable String userId) {
         return swipeService.dislikeProfile(requestedCatId, userId);
     }
-    @GetMapping("allStates")
+    @GetMapping("/allStates")
     public List<SwipeState> getAllSwipeStates(){
         return swipeStateRepository.findAll();
     }

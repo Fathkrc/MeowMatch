@@ -22,7 +22,6 @@ import java.util.List;
 
 @SpringBootApplication
 public class MeowmatchApplication implements CommandLineRunner {
-    //Todo: remove those from application main class after tests
     @Autowired
     private CatRepository catRepository;
     @Autowired
@@ -44,7 +43,6 @@ public class MeowmatchApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//		catRepository.findAll().forEach(System.out::println);
         catRepository.deleteAll();
         catService.seedAllCatsFromJsonFile();
         conversationRepository.deleteAll();

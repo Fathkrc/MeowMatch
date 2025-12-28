@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-@RequestMapping("matches/")
+@RequestMapping("/matches")
 public class MatchController {
     // this will work like messages section we will see whom we match and our conservations
 
@@ -37,13 +37,13 @@ public class MatchController {
 //
 //    }
     @GetMapping
-    @RequestMapping("{userId}/")
+    @RequestMapping("/{userId}/")
     public ResponseEntity<List<Match>> getUsersMatches(@PathVariable String userId){
        return ResponseEntity.ok(matchService.getUsersMatch(userId));
     }
 
     @GetMapping
-    @RequestMapping("admin")
+    @RequestMapping("/admin")
     public List<Match> getAllMatches(){
         return matchService.getAllCatMatches();
     }
