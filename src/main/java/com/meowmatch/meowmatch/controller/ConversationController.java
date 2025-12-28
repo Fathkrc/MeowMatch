@@ -35,8 +35,7 @@ public class ConversationController {
 //    }
 
     // Get All conversations
-    @GetMapping()// admin
-    @RequestMapping("/admin")
+    @GetMapping("/admin")// admin
     public List<Conversation> getAllConversations() {
         return conversationService.getAllConversation();
     }
@@ -61,7 +60,6 @@ public class ConversationController {
         return ResponseEntity.noContent().build(); // 204 No Content
 
     }
-//todo: not working
     @PutMapping("/{conversationId}")
     public Conversation addMessageToExistingConversation(
 

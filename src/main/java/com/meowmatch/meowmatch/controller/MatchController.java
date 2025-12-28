@@ -27,23 +27,12 @@ public class MatchController {
         this.matchService = matchService;
     }
 
-    //todo: this will go to swipe controller
-//    @PostMapping("{userId}/{requestedCatId}")
-//    public ResponseEntity<Match> matchRequest(@PathVariable String requestedCatId,String userId) {
-//        return ResponseEntity.ok(matchService.createBasicMatch(requestedCatId,userId));
-//    }
-//    @GetMapping
-//    public ResponseEntity<List<Match>> getMatches(){
-//
-//    }
-    @GetMapping
-    @RequestMapping("/{userId}/")
+    @GetMapping("/{userId}")
     public ResponseEntity<List<Match>> getUsersMatches(@PathVariable String userId){
        return ResponseEntity.ok(matchService.getUsersMatch(userId));
     }
 
-    @GetMapping
-    @RequestMapping("/admin")
+    @GetMapping("/admin")
     public List<Match> getAllMatches(){
         return matchService.getAllCatMatches();
     }

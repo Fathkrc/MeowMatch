@@ -1,202 +1,202 @@
 [
     {
-        "id": null,
-        "name": "Oliver",
-        "age": 8,
-        "gender": "MALE",
-        "location": "Lahti",
+        "id": 1,
+        "name": "Luna",
+        "age": 3,
+        "gender": "FEMALE",
+        "location": "Helsinki",
         "imageUrl": "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg",
-        "breed": "Oriental",
-        "bio": "Head tilt master."
+        "breed": "Siamese",
+        "bio": "Elegant and talkative. I enjoy sunset bird-watching and heated blankets. Looking for a gentleman who appreciates fine tuna."
     },
     {
-        "id": null,
-        "name": "Zoe",
-        "age": 5,
+        "id": 2,
+        "name": "Bella",
+        "age": 2,
         "gender": "FEMALE",
         "location": "Espoo",
-        "imageUrl": "https://cdn2.thecatapi.com/images/bpc.jpg",
-        "breed": "British Shorthair",
-        "bio": "Energetic and loves climbing."
+        "imageUrl": "https://cdn2.thecatapi.com/images/9u1.jpg",
+        "breed": "Maine Coon",
+        "bio": "Fluffy and adventurous! I love climbing cat trees and cuddling during movie nights. Seeking a playful partner for adventures."
     },
     {
-        "id": null,
-        "name": "Luna",
-        "age": 1,
-        "gender": "FEMALE",
-        "location": "Oulu",
-        "imageUrl": "https://cdn2.thecatapi.com/images/c9.jpg",
-        "breed": "Persian",
-        "bio": "Floppy lap cat with big blue eyes."
-    },
-    {
-        "id": null,
-        "name": "Luna",
+        "id": 3,
+        "name": "Chloe",
         "age": 4,
-        "gender": "FEMALE",
-        "location": "Lappeenranta",
-        "imageUrl": "https://cdn2.thecatapi.com/images/7m.jpg",
-        "breed": "Russian Blue",
-        "bio": "Quiet, fluffy, and loves naps."
-    },
-    {
-        "id": null,
-        "name": "Oscar",
-        "age": 4,
-        "gender": "MALE",
-        "location": "Helsinki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/d3.jpg",
-        "breed": "British Shorthair",
-        "bio": "Loves sunbathing and birdwatching."
-    },
-    {
-        "id": null,
-        "name": "Nala",
-        "age": 6,
         "gender": "FEMALE",
         "location": "Turku",
-        "imageUrl": "https://cdn2.thecatapi.com/images/e5.jpg",
-        "breed": "Abyssinian",
-        "bio": "Gentle giant with a loud purr."
-    },
-    {
-        "id": null,
-        "name": "Jasper",
-        "age": 3,
-        "gender": "MALE",
-        "location": "Sein\u00e4joki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg",
-        "breed": "Ragdoll",
-        "bio": "Energetic and loves climbing."
-    },
-    {
-        "id": null,
-        "name": "Max",
-        "age": 7,
-        "gender": "MALE",
-        "location": "Helsinki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyMg.jpg",
+        "imageUrl": "https://cdn2.thecatapi.com/images/8io.jpg",
         "breed": "British Shorthair",
-        "bio": "Energetic and loves climbing."
+        "bio": "Sophisticated lady with a love for classical music and chin scratches. Dislikes loud noises but adores gentle company."
     },
     {
-        "id": null,
-        "name": "Charlie",
-        "age": 7,
-        "gender": "MALE",
-        "location": "Oulu",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNA.jpg",
-        "breed": "Ragdoll",
-        "bio": "Floppy lap cat with big blue eyes."
-    },
-    {
-        "id": null,
-        "name": "Simba",
+        "id": 4,
+        "name": "Sophie",
         "age": 1,
-        "gender": "MALE",
-        "location": "Espoo",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNQ.jpg",
-        "breed": "Bengal",
-        "bio": "Floppy lap cat with big blue eyes."
+        "gender": "FEMALE",
+        "location": "Oulu",
+        "imageUrl": "https://cdn2.thecatapi.com/images/bu1.jpg",
+        "breed": "Persian",
+        "bio": "Young, playful princess with luxurious fur. My hobbies include chasing laser dots and napping in sunbeams. Looking for my prince!"
     },
     {
-        "id": null,
+        "id": 5,
+        "name": "Mia",
+        "age": 5,
+        "gender": "FEMALE",
+        "location": "Tampere",
+        "imageUrl": "https://cdn2.thecatapi.com/images/c8a.jpg",
+        "breed": "Russian Blue",
+        "bio": "Mysterious beauty with silver-tipped fur. I'm shy at first but incredibly loyal once I trust you. Love quiet evenings together."
+    },
+    {
+        "id": 6,
+        "name": "Zoe",
+        "age": 2,
+        "gender": "FEMALE",
+        "location": "Lahti",
+        "imageUrl": "https://cdn2.thecatapi.com/images/d4d.jpg",
+        "breed": "Bengal",
+        "bio": "Wild at heart with stunning leopard-like spots! I need an active companion for climbing adventures and exploring new territories."
+    },
+    {
+        "id": 7,
+        "name": "Nala",
+        "age": 6,
+        "gender": "FEMALE",
+        "location": "Jyväskylä",
+        "imageUrl": "https://cdn2.thecatapi.com/images/e5g.jpg",
+        "breed": "Abyssinian",
+        "bio": "Gentle giant with a motor-like purr. I'm the definition of a lap cat - once I settle, I'm not moving for hours. Perfect cuddle buddy!"
+    },
+    {
+        "id": 8,
+        "name": "Daisy",
+        "age": 3,
+        "gender": "FEMALE",
+        "location": "Kuopio",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyOA.jpg",
+        "breed": "Scottish Fold",
+        "bio": "Sweet-faced with adorable folded ears. I'm curious about everything and love playing with puzzle toys. Looking for someone equally inquisitive!"
+    },
+    {
+        "id": 9,
+        "name": "Ruby",
+        "age": 4,
+        "gender": "FEMALE",
+        "location": "Pori",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMA.jpg",
+        "breed": "Ragdoll",
+        "bio": "Literally goes limp with happiness when held! I'm a blue-eyed beauty who believes every day should include at least 18 hours of beauty sleep."
+    },
+    {
+        "id": 10,
         "name": "Misty",
+        "age": 7,
+        "gender": "FEMALE",
+        "location": "Vaasa",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNg.jpg",
+        "breed": "Norwegian Forest Cat",
+        "bio": "Winter-ready floof with a love for snow! I'm independent but affectionate on my terms. Looking for someone who respects personal space."
+    },
+    {
+        "id": 11,
+        "name": "Cleo",
+        "age": 5,
+        "gender": "FEMALE",
+        "location": "Lappeenranta",
+        "imageUrl": "https://cdn2.thecatapi.com/images/7m1.jpg",
+        "breed": "Sphynx",
+        "bio": "Bold, hairless, and full of personality! I need a human who understands I require sweaters in winter and sunscreen in summer."
+    },
+    {
+        "id": 12,
+        "name": "Lily",
+        "age": 2,
+        "gender": "FEMALE",
+        "location": "Joensuu",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMw.jpg",
+        "breed": "Burmese",
+        "bio": "Social butterfly who loves meeting new friends! I'm always up for playtime and will serenade you with my melodic meows at dinner time."
+    },
+    {
+        "id": 13,
+        "name": "Coco",
+        "age": 4,
+        "gender": "FEMALE",
+        "location": "Mikkeli",
+        "imageUrl": "https://cdn2.thecatapi.com/images/c9a.jpg",
+        "breed": "Birman",
+        "bio": "Sacred cat from Burma with stunning white gloves. I'm calm, gentle, and believe in daily meditation (usually while napping in sacred spots)."
+    },
+    {
+        "id": 14,
+        "name": "Willow",
+        "age": 1,
+        "gender": "FEMALE",
+        "location": "Kotka",
+        "imageUrl": "https://cdn2.thecatapi.com/images/d3a.jpg",
+        "breed": "Turkish Angora",
+        "bio": "Energetic kitten with cloud-like fur! I'm always getting into mischief but my adorable face gets me out of trouble. Ready for fun!"
+    },
+    {
+        "id": 15,
+        "name": "Sasha",
+        "age": 6,
+        "gender": "FEMALE",
+        "location": "Seinäjoki",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyOQ.jpg",
+        "breed": "Oriental Shorthair",
+        "bio": "Slender fashionista with enormous ears! I'm vocal about my opinions (especially regarding dinner time) and demand regular play sessions."
+    },
+    {
+        "id": 16,
+        "name": "Ginger",
+        "age": 3,
+        "gender": "FEMALE",
+        "location": "Rovaniemi",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMQ.jpg",
+        "breed": "Domestic Shorthair",
+        "bio": "Rare female orange tabby! I'm feisty, funny, and full of surprises. Looking for someone who can keep up with my endless energy."
+    },
+    {
+        "id": 17,
+        "name": "Pearl",
+        "age": 8,
+        "gender": "FEMALE",
+        "location": "Hämeenlinna",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMg.jpg",
+        "breed": "British Shorthair",
+        "bio": "Mature lady with wisdom and grace. I prefer quiet evenings, gentle petting, and sophisticated conversation (through slow blinks, of course)."
+    },
+    {
+        "id": 18,
+        "name": "Ivy",
+        "age": 2,
+        "gender": "FEMALE",
+        "location": "Porvoo",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzNA.jpg",
+        "breed": "Siberian",
+        "bio": "Hypoallergenic forest beauty! I'm playful yet gentle, with triple-layer fur perfect for Finnish winters. Love exploring outdoors."
+    },
+    {
+        "id": 19,
+        "name": "Phoebe",
+        "age": 4,
+        "gender": "FEMALE",
+        "location": "Rauma",
+        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzNQ.jpg",
+        "breed": "Cornish Rex",
+        "bio": "Curly-coated acrobat with wavy fur! I'm incredibly athletic and can jump to impressive heights. Looking for an active playmate!"
+    },
+    {
+        "id": 20,
+        "name": "Aurora",
         "age": 5,
         "gender": "FEMALE",
         "location": "Helsinki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNg.jpg",
-        "breed": "Bengal",
-        "bio": "Gentle giant with a loud purr."
-    },
-    {
-        "id": null,
-        "name": "Simba",
-        "age": 6,
-        "gender": "MALE",
-        "location": "Jyv\u00e4skyl\u00e4",
         "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyNw.jpg",
         "breed": "Maine Coon",
-        "bio": "Quiet, fluffy, and loves naps."
-    },
-    {
-        "id": null,
-        "name": "Daisy",
-        "age": 6,
-        "gender": "FEMALE",
-        "location": "Helsinki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyOA.jpg",
-        "breed": "Abyssinian",
-        "bio": "Quiet, fluffy, and loves naps."
-    },
-    {
-        "id": null,
-        "name": "Tasha",
-        "age": 2,
-        "gender": "FEMALE",
-        "location": "Sein\u00e4joki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIyOQ.jpg",
-        "breed": "Oriental",
-        "bio": "Quiet, fluffy, and loves naps."
-    },
-    {
-        "id": null,
-        "name": "Nala",
-        "age": 4,
-        "gender": "FEMALE",
-        "location": "Sein\u00e4joki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMA.jpg",
-        "breed": "Maine Coon",
-        "bio": "Talkative and social."
-    },
-    {
-        "id": null,
-        "name": "Finn",
-        "age": 5,
-        "gender": "MALE",
-        "location": "Helsinki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMQ.jpg",
-        "breed": "Bengal",
-        "bio": "Quiet, fluffy, and loves naps."
-    },
-    {
-        "id": null,
-        "name": "Max",
-        "age": 7,
-        "gender": "MALE",
-        "location": "Helsinki",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMg.jpg",
-        "breed": "Scottish Fold",
-        "bio": "Quiet, fluffy, and loves naps."
-    },
-    {
-        "id": null,
-        "name": "Luna",
-        "age": 2,
-        "gender": "FEMALE",
-        "location": "Espoo",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzMw.jpg",
-        "breed": "Bengal",
-        "bio": "Loves sunbathing and birdwatching."
-    },
-    {
-        "id": null,
-        "name": "Charlie",
-        "age": 4,
-        "gender": "MALE",
-        "location": "Vaasa",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzNA.jpg",
-        "breed": "Abyssinian",
-        "bio": "Quiet, fluffy, and loves naps."
-    },
-    {
-        "id": null,
-        "name": "Jasper",
-        "age": 1,
-        "gender": "MALE",
-        "location": "Oulu",
-        "imageUrl": "https://cdn2.thecatapi.com/images/MTY3ODIzNQ.jpg",
-        "breed": "Maine Coon",
-        "bio": "Quiet, fluffy, and loves naps."
+        "bio": "Majestic queen with ear tufts and a magnificent tail! I'm friendly, dog-like in loyalty, and enjoy playing fetch. Your gentle giant awaits!"
     }
 ]
