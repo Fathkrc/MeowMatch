@@ -1,18 +1,51 @@
 package com.meowmatch.meowmatch.models.conversations;
 
-import com.meowmatch.meowmatch.models.Cat;
+import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
-public record Conversation(
-        String id,
+public class Conversation {
+    @Id
+    private String id;
 
-        String profileId,
+    private String profileId;
 
-        String matchedProfileId,// one cat we match
+    private String matchedProfileId;// one cat we match
 
-        List<ChatMessage> messages
+    private List<ChatMessage> messages;
 
-) {
+    public Conversation(String profileId, String matchedProfileId, List<ChatMessage> messages) {
+        this.profileId = profileId;
+        this.matchedProfileId = matchedProfileId;
+        this.messages = messages;
+    }
 
+    public String getId() {
+        return id;
+    }
+
+
+    public String getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(String profileId) {
+        this.profileId = profileId;
+    }
+
+    public String getMatchedProfileId() {
+        return matchedProfileId;
+    }
+
+    public void setMatchedProfileId(String matchedProfileId) {
+        this.matchedProfileId = matchedProfileId;
+    }
+
+    public List<ChatMessage> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<ChatMessage> messages) {
+        this.messages = messages;
+    }
 }

@@ -32,13 +32,13 @@ private final CatRepository catRepository;
 
     public ResponseEntity<String> seedAllCatsFromJsonFile() {
         // Hard coded my lovely lovemaker cat
-        Cat furkir=new Cat("furkir","Furkir",4, Gender.MALE,"Isparta","","Persian","Lovely and playful, never harm any creatures except his toys");
+//        Cat furkir=new Cat("Furkir",4, Gender.MALE,"Isparta","","Persian","Lovely and playful, never harm any creatures except his toys");
         try {
             List<Cat> existingProfiles = gson.fromJson(
                     new FileReader(CATS_JSON_FILE_URL),
                     new TypeToken<ArrayList<Cat>>() {}.getType()
             );
-            existingProfiles.add(furkir);
+//            existingProfiles.add(furkir);
             System.out.print("cats seed");
             catRepository.saveAll(existingProfiles);
             return ResponseEntity.ok("✅ Seeded cats to DB");
@@ -55,7 +55,6 @@ private final CatRepository catRepository;
     public Cat updateExistingCat(String catId, CatRequest catRequest) {
         Cat cat=findById(catId);
         Cat newCat=new Cat(
-                cat.id(),
                 catRequest.name(),
                 catRequest.age(),
                 catRequest.gender(),
@@ -72,7 +71,6 @@ private final CatRepository catRepository;
 
     public Cat createNewCat(CatRequest catRequest) {
         Cat newCat= new Cat(
-                UUID.randomUUID().toString(),
                 catRequest.name(),
                 catRequest.age(),
                 catRequest.gender(),

@@ -1,7 +1,5 @@
 package com.meowmatch.meowmatch.models;
 
-
-import com.meowmatch.meowmatch.models.match.Match;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,13 +9,10 @@ import java.util.*;
 @Document("swipe_state")
 public class SwipeState {
 
-    @Id
     private String userCatId; // same as Cat.id(), one doc per user
 
-    private Set<String> likedCatIds =new HashSet<>();
-    private Set<String> dislikedCatIds =new HashSet<>();
-
-
+    private Set<String> likedCatIds = new HashSet<>();
+    private Set<String> dislikedCatIds = new HashSet<>();
 
     // key: targetCatId, value: conversationId
     private Set<String> matchedIds = new HashSet<>();
@@ -30,13 +25,14 @@ public class SwipeState {
         return userCatId;
     }
 
-    public Set<String> getLikedCats(){
+    public Set<String> getLikedCats() {
         return likedCatIds;
     }
 
-    public Set<String> getdislikedCats(){
+    public Set<String> getdislikedCats() {
         return dislikedCatIds;
     }
+
     public void like(String likedCat) {
         likedCatIds.add(likedCat);
     }

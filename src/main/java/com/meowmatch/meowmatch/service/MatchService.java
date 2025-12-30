@@ -27,13 +27,12 @@ public class MatchService {
         Cat user = catService.findById(userId);
         Cat matchedCat = catService.findById(requestedCatId);
 
-        Conversation convo = new Conversation(UUID.randomUUID().toString(), userId, requestedCatId, new ArrayList<>());
+        Conversation convo = new Conversation( userId, requestedCatId, new ArrayList<>());
         conversationService.saveConversation(convo);
         Match match1 = new Match(
-                UUID.randomUUID().toString(),
-                user.id(),
-                matchedCat.id(),
-                convo.id());
+                user.getId(),
+                matchedCat.getId(),
+                convo.getId());
         matchRepository.save(match1);
         return match1;
     }
@@ -46,7 +45,7 @@ public class MatchService {
     public List<Match> getUsersMatch(String userId) {
         return matchRepository.findAll()
                 .stream()
-                .filter(t -> t.userCatId().equals(userId))
+                .filter(t -> t.getUserCatId().equals(userId))
                 .toList();
     }
 }
