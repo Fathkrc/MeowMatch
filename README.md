@@ -3,22 +3,24 @@
 **MeowMatch** is a fun Spring Boot + MongoDB backend project designed to match cats for friendship or romance.  
 _(Yes, even cats need love!)_
 
-⚠ **Note:** This project is currently focused only on the **backend** — no frontend yet.  
-I am building a solid REST API foundation first.
+I have created a small react frontend also .I cant map messages and ollama response but still you can check that out. 
+I will add an example of the UI.
+https://github.com/Fathkrc/meowMatch_UI/tree/main/ReactMeow
 
 ---
 ---
 
 ## 🚀 Tech Stack
-
-- Java 21
+- Java 24
 - Spring Boot
 - Spring Data MongoDB
 - Spring AI
 - Maven
 - Swagger UI
-
+- Ollama LLM
+- React
 ---
+![Fronted UI](docs/meowmatch_UI.png)
 ![Swagger UI](docs/catController)
 ![Swagger UI](docs/conversationController.png)
 ![Swagger UI](docs/matchController.png)

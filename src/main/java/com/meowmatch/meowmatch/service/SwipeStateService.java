@@ -41,7 +41,6 @@ public class SwipeStateService {
         return matchService.createBasicMatch(userId, requestedCatId);
     }
 
-    // todo: ADD NEXT MECHANICS
     public Cat nextProfile(String userId) {
 
         // user exist
@@ -61,8 +60,8 @@ public class SwipeStateService {
         // unique and new candidates
 
         List<Cat> candidates = catService.findAll().stream()
-                .filter(c -> c != null && c.id() != null)
-                .filter(c -> !excluded.contains(c.id()))
+                .filter(c -> c != null && c.getId() != null)
+                .filter(c -> !excluded.contains(c.getId()))
                 .toList();
 
         if (candidates.isEmpty()) {
@@ -77,7 +76,7 @@ public class SwipeStateService {
     public ResponseEntity<String> dislikeProfile( String userId,String requestedCatId) {
 
         Cat user = catService.findById(userId);
-        String dislikedProfileId=catService.findById(requestedCatId).id();
+        String dislikedProfileId=catService.findById(requestedCatId).getId();
         SwipeState swipeState=findSwipeStateOrCreate(userId);
         swipeState.dislike(requestedCatId);
         swipeStateRepository.save(swipeState);

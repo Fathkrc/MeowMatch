@@ -48,4 +48,5 @@ public class Conversation {
     public void setMessages(List<ChatMessage> messages) {
         this.messages = messages;
     }
+
 }

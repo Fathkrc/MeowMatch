@@ -58,9 +58,9 @@ public class ConversationService {
                 chatMessage.targetedProfile(),
                 LocalDateTime.now()
         );
-        conversation.messages().add(messageWithTime);
+        conversation.getMessages().add(messageWithTime);
         ChatMessage chatMessageFromOllama= ollamaService.responseToAddedMessageToConversation(conversationId,messageWithTime);
-        conversation.messages().add(chatMessageFromOllama);
+        conversation.getMessages().add(chatMessageFromOllama);
         conversationRepository.save(conversation);
         return conversation;
     }
@@ -82,7 +82,7 @@ public class ConversationService {
     public List<Conversation> getConversationsUserHas(String catId) {
         return conversationRepository.findAll()
                 .stream()
-                .filter(t->t.profileId().equals(catId))
+                .filter(t->t.getProfileId().equals(catId))
                 .toList();
     }
 

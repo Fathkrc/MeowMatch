@@ -104,6 +104,6 @@ public class OllamaService {
                         - Incorporate light teasing, puns, or banter.
                         - Stay in character as a cool, chatty cat.
                         he just wrote this message %s to you
-                        """.formatted(profileForPrompt.age(), profileForPrompt.breed(), profileForPrompt.gender(), profileForPrompt.name(), profileForPrompt.bio(), chatMessage.messageText());
+                        """.formatted(profileForPrompt.getAge(), profileForPrompt.getBreed(), profileForPrompt.getGender(), profileForPrompt.getName(), profileForPrompt.getBio(), chatMessage.messageText());
     }
 }
