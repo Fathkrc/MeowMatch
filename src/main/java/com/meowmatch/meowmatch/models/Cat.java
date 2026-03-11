@@ -1,10 +1,15 @@
 package com.meowmatch.meowmatch.models;
+
 import com.meowmatch.meowmatch.models.enums.Gender;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class Cat{
+@Document(collection = "cats")
+public class Cat {
+
         @Id
         private String id;
+
         private String name;
         private int age;
         private Gender gender;
@@ -12,9 +17,12 @@ public class Cat{
         private String imageUrl;
         private String breed;
         private String bio;
+        private String userId;
+
+        public Cat() {}
 
         public Cat(String name, int age, Gender gender, String location,
-                   String imageUrl, String breed, String bio) {
+                   String imageUrl, String breed, String bio, String userId) {
                 this.name = name;
                 this.age = age;
                 this.gender = gender;
@@ -22,10 +30,8 @@ public class Cat{
                 this.imageUrl = imageUrl;
                 this.breed = breed;
                 this.bio = bio;
+                this.userId = userId;
         }
-
-        // Empty const
-        public Cat() {}
 
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -51,7 +57,9 @@ public class Cat{
         public String getBio() { return bio; }
         public void setBio(String bio) { this.bio = bio; }
 
-        // toString() for debugging
+        public String getUserId() { return userId; }
+        public void setUserId(String userId) { this.userId = userId; }
+
         @Override
         public String toString() {
                 return "Cat{" +

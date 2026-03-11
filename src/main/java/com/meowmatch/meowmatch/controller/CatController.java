@@ -35,8 +35,8 @@ public class CatController {
     }
 
     @PostMapping("/newCat")
-    public ResponseEntity<Cat> createNewProfile(@RequestBody CatRequest catRequest) {
-        Cat cat = catService.createNewCat(catRequest);
+    public ResponseEntity<Cat> createNewProfile(String userId,@RequestBody CatRequest catRequest) {
+        Cat cat = catService.createNewCat(userId,catRequest);
         return ResponseEntity.ok(cat);
     }
 
