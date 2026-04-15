@@ -2,3 +2,9 @@ spring.application.name=meowmatch
 spring.data.mongodb.uri=YOUR_MONGO_URI_HERE
 openai.api.key=YOUR_OPENAI_API_KEY_HERE
 server.port=8080
+
+# JWT auth
+# Generate a strong secret and keep it private (min 32 chars recommended).
+security.jwt.secret=CHANGE_ME_TO_A_LONG_RANDOM_SECRET
+# 7 days in milliseconds
+security.jwt.expiration-ms=604800000

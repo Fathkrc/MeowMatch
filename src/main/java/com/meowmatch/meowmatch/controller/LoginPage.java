@@ -1,12 +1,14 @@
 package com.meowmatch.meowmatch.controller;
 
 import com.meowmatch.meowmatch.models.dto.LoginRequest;
+import com.meowmatch.meowmatch.models.dto.AuthResponse;
 import com.meowmatch.meowmatch.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/auth/login")
@@ -18,7 +20,7 @@ public class LoginPage {
     }
 
     @PostMapping
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
         return ResponseEntity.ok(userService.loginRequest(loginRequest));
     }
 }

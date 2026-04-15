@@ -1,5 +1,7 @@
 package com.meowmatch.meowmatch.service;
 
+import com.meowmatch.meowmatch.authorization.JwtService;
+import com.meowmatch.meowmatch.models.dto.AuthResponse;
 import com.meowmatch.meowmatch.models.dto.LoginRequest;
 import com.meowmatch.meowmatch.models.dto.RegisterRequest;
 import com.meowmatch.meowmatch.models.dto.UserResponse;
@@ -15,13 +17,15 @@ import java.util.NoSuchElementException;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
-    public UserService(UserRepository userRepository,  PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
     }
 
-    public String loginRequest(LoginRequest loginRequest) {
+    public AuthResponse loginRequest(LoginRequest loginRequest) {
         User user = userRepository.findByUsername(loginRequest.getUsername())
                 .orElseThrow(() -> new NoSuchElementException("User not found"));
 
@@ -29,10 +33,12 @@ public class UserService {
             throw new IllegalArgumentException("Invalid password");
         }
 
-        return "Login successful";
+        String token = jwtService.generateToken(user.getUsername());
+        UserResponse userResponse = new UserResponse(user.getId(), user.getUsername());
+        return new AuthResponse(token, userResponse);
     }
 
-    public ResponseEntity<UserResponse> registerRequest(RegisterRequest registerRequest) {
+    public ResponseEntity<AuthResponse> registerRequest(RegisterRequest registerRequest) {
         if (userRepository.existsByUsername(registerRequest.getUsername())) {
             throw new IllegalArgumentException("Username already exists");
         }
@@ -43,7 +49,8 @@ public class UserService {
 
         User savedUser = userRepository.save(user);
 
-        UserResponse response = new UserResponse(savedUser.getId(), savedUser.getUsername());
-        return ResponseEntity.ok(response);
+        String token = jwtService.generateToken(savedUser.getUsername());
+        UserResponse userResponse = new UserResponse(savedUser.getId(), savedUser.getUsername());
+        return ResponseEntity.ok(new AuthResponse(token, userResponse));
     }
 }

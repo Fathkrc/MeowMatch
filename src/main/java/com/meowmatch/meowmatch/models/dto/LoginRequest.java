@@ -1,10 +1,11 @@
 package com.meowmatch.meowmatch.models.dto;
 
-import org.springframework.stereotype.Component;
-
+import jakarta.validation.constraints.NotBlank;
 
 public class LoginRequest {
+    @NotBlank
     private String username;
+    @NotBlank
     private String password;
 
     public String getPassword() {
