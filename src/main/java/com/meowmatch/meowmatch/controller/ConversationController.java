@@ -3,12 +3,12 @@ package com.meowmatch.meowmatch.controller;
 import com.meowmatch.meowmatch.models.conversations.ChatMessage;
 import com.meowmatch.meowmatch.models.conversations.Conversation;
 import com.meowmatch.meowmatch.models.dto.CreateConversationRequest;
-import com.meowmatch.meowmatch.repository.CatRepository;
-import com.meowmatch.meowmatch.repository.ConversationRepository;
 import com.meowmatch.meowmatch.service.CatService;
 import com.meowmatch.meowmatch.service.ConversationService;
+import com.meowmatch.meowmatch.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -20,9 +20,13 @@ import java.util.List;
 
 public class ConversationController {
     private final ConversationService conversationService;
+    private final CatService catService;
+    private final UserService userService;
 
-    public ConversationController(ConversationService conversationService) {
+    public ConversationController(ConversationService conversationService, CatService catService, UserService userService) {
         this.conversationService = conversationService;
+        this.catService = catService;
+        this.userService = userService;
 
     }
 
@@ -44,6 +48,17 @@ public class ConversationController {
     @GetMapping("/cat/{catId}")
     public List<Conversation> getConversationsWithCatId(@PathVariable String catId) {
         return conversationService.getConversationsUserHas(catId);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<List<Conversation>> getMyConversations(Authentication authentication) {
+        String username = (authentication != null) ? String.valueOf(authentication.getPrincipal()) : null;
+        if (username == null || username.isBlank() || "anonymousUser".equals(username)) {
+            return ResponseEntity.status(401).build();
+        }
+        String userId = userService.getMe(username).getId();
+        String catId = catService.findByUserId(userId).getId();
+        return ResponseEntity.ok(conversationService.getConversationsUserHas(catId));
     }
 
     @GetMapping("/{conversationId}")

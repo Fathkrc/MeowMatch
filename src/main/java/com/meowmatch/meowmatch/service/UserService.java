@@ -53,4 +53,10 @@ public class UserService {
         UserResponse userResponse = new UserResponse(savedUser.getId(), savedUser.getUsername());
         return ResponseEntity.ok(new AuthResponse(token, userResponse));
     }
+
+    public UserResponse getMe(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new NoSuchElementException("User not found"));
+        return new UserResponse(user.getId(), user.getUsername());
+    }
 }
