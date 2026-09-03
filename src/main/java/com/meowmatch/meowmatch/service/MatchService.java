@@ -3,12 +3,11 @@ package com.meowmatch.meowmatch.service;
 import com.meowmatch.meowmatch.models.Cat;
 import com.meowmatch.meowmatch.models.conversations.Conversation;
 import com.meowmatch.meowmatch.models.match.Match;
-import com.meowmatch.meowmatch.repository.CatRepository;
-import com.meowmatch.meowmatch.repository.ConversationRepository;
 import com.meowmatch.meowmatch.repository.MatchRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class MatchService {
@@ -23,29 +22,25 @@ public class MatchService {
         this.catService = catService;
     }
 
-    public Match createBasicMatch(String userId, String requestedCatId) {
-        Cat user = catService.findById(userId);
-        Cat matchedCat = catService.findById(requestedCatId);
+    public Match createMatch(String userCatId, String targetCatId) {
+        Cat userCat = catService.findById(userCatId);
+        Cat targetCat = catService.findById(targetCatId);
 
-        Conversation convo = new Conversation( userId, requestedCatId, new ArrayList<>());
+        Conversation convo = new Conversation(userCatId, targetCatId, new ArrayList<>());
         conversationService.saveConversation(convo);
-        Match match1 = new Match(
-                user.getId(),
-                matchedCat.getId(),
-                convo.getId());
-        matchRepository.save(match1);
-        return match1;
+
+        Match match = new Match(userCat.getId(), targetCat.getId(), convo.getId());
+        return matchRepository.save(match);
     }
 
     public List<Match> getAllCatMatches() {
         return matchRepository.findAll();
     }
 
-    //its like messages section to see matches
-    public List<Match> getUsersMatch(String userId) {
+    public List<Match> getMatchesForCat(String userCatId) {
         return matchRepository.findAll()
                 .stream()
-                .filter(t -> t.getUserCatId().equals(userId))
+                .filter(match -> match.getUserCatId().equals(userCatId))
                 .toList();
     }
 }
