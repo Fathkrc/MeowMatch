@@ -79,10 +79,10 @@ public class ConversationService {
                         , "Unable to Find conversation with " + conversationId + " id"));
     }
 
-    public List<Conversation> getConversationsUserHas(String catId) {
+    public List<Conversation> getConversationsForCat(String userCatId) {
         return conversationRepository.findAll()
                 .stream()
-                .filter(t->t.getProfileId().equals(catId))
+                .filter(conversation -> conversation.getProfileId().equals(userCatId))
                 .toList();
     }
 
